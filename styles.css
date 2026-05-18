@@ -43,13 +43,14 @@ a {
 }
 
 .nav {
-  width: min(1120px, calc(100% - 32px));
+  width: 100%;
   min-height: 68px;
   margin: 0 auto;
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  
 }
 
 .brand {
@@ -58,15 +59,28 @@ a {
   white-space: nowrap;
 }
 
+
 .menu {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 6px;
   padding: 0;
   margin: 0;
   list-style: none;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
+  overflow-x: scroll;
+      /* Hide scrollbar for Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+
+  /* Hide scrollbar for IE and Edge */
+  -ms-overflow-style: none;
 }
 
 .menu a {
@@ -448,6 +462,10 @@ footer {
     padding: 14px 0;
   }
 
+   .brand {
+    display: none;
+  }
+
   .menu {
     justify-content: flex-start;
   }
@@ -481,8 +499,6 @@ footer {
   .contact-links {
     justify-content: flex-start;
   }
-}
-
 
   .drawer-panel {
     min-height: 430px;
@@ -492,10 +508,6 @@ footer {
 }
 
 @media (max-width: 520px) {
-  main,
-  .nav {
-    width: min(100% - 22px, 1120px);
-  }
 
   .menu a {
     padding: 0 9px;
