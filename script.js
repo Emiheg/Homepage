@@ -13,7 +13,6 @@ const applyTheme = (theme) => {
   document.body.dataset.theme = isLight ? "light" : "dark";
   themeSwitch.setAttribute("aria-checked", String(!isLight));
   themeSwitch.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
-  themeLabel.textContent = isLight ? "Light" : "Dark";
 };
 
 applyTheme(localStorage.getItem("theme") || "dark");
