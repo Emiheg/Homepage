@@ -8,10 +8,18 @@
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
-<body>
+<body data-theme="dark">
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#top">Emil Hegdal</a>
+      <div class="nav-start">
+        <button class="theme-switch" type="button" role="switch" aria-checked="true" aria-label="Switch to light theme">
+          <span class="switch-track" aria-hidden="true">
+            <span class="switch-thumb"></span>
+          </span>
+          <span class="theme-label">Dark</span>
+        </button>
+        <a class="brand" href="#top">Emil Hegdal</a>
+      </div>
       <div class="menu">
         <a href="#about">About</a>
         <a href="#work">Work</a>

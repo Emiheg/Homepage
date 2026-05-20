@@ -4,6 +4,26 @@ const audioPlayer = document.querySelector("#audio-player");
 const currentTrackTitle = document.querySelector("#current-track-title");
 const currentTrackDescription = document.querySelector("#current-track-description");
 const trackButtons = document.querySelectorAll(".track-button");
+const themeSwitch = document.querySelector(".theme-switch");
+const themeLabel = document.querySelector(".theme-label");
+
+const applyTheme = (theme) => {
+  const isLight = theme === "light";
+
+  document.body.dataset.theme = isLight ? "light" : "dark";
+  themeSwitch.setAttribute("aria-checked", String(!isLight));
+  themeSwitch.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+  themeLabel.textContent = isLight ? "Light" : "Dark";
+};
+
+applyTheme(localStorage.getItem("theme") || "dark");
+
+themeSwitch.addEventListener("click", () => {
+  const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+
+  localStorage.setItem("theme", nextTheme);
+  applyTheme(nextTheme);
+});
 
 drawerToggle.addEventListener("click", () => {
   const isOpen = drawer.classList.toggle("is-open");

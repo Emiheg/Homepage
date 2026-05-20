@@ -1,16 +1,55 @@
 :root {
-  --bg: #f7f5ef;
-  --surface: #ffffff;
-  --ink: #1f2933;
-  --muted: #5f6b76;
-  --line: #d8d2c6;
-  --accent: #2d7d7a;
-  --accent-dark: #1d5f5d;
-  --warm: #c9854f;
+  --light-bg: #f7f5ef;
+  --light-surface: #ffffff;
+  --light-ink: #1f2933;
+  --light-muted: #5f6b76;
+  --light-line: #d8d2c6;
+  --light-accent: #2d7d7a;
+  --light-accent-strong: #1d5f5d;
+  --light-warm: #c9854f;
+  --light-card: rgba(255, 255, 255, 0.72);
+  --light-sound-card: rgba(255, 255, 255, 0.58);
+
+  --dark-bg: #101418;
+  --dark-surface: #171d23;
+  --dark-ink: #f1f0ea;
+  --dark-muted: #aeb7bf;
+  --dark-line: #313a42;
+  --dark-accent: #96580e;
+  --dark-accent-strong: #ca7e11;
+  --dark-warm: #ff7700;
+  --dark-card: rgba(23, 29, 35, 0.82);
+  --dark-sound-card: rgba(23, 29, 35, 0.68);
+
+  --bg: var(--dark-bg);
+  --surface: var(--dark-surface);
+  --ink: var(--dark-ink);
+  --muted: var(--dark-muted);
+  --line: var(--dark-line);
+  --accent: var(--dark-accent);
+  --accent-dark: var(--dark-accent-strong);
+  --warm: var(--dark-warm);
+  --card-bg: var(--dark-card);
+  --sound-card-bg: var(--dark-sound-card);
   --night: #17212b;
-  --shadow: 0 18px 50px rgba(31, 41, 51, 0.11); 
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
   --radius: 8px;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+[data-theme="light"] {
+  --bg: var(--light-bg);
+  --surface: var(--light-surface);
+  --ink: var(--light-ink);
+  --muted: var(--light-muted);
+  --line: var(--light-line);
+  --accent: var(--light-accent);
+  --accent-dark: var(--light-accent-strong);
+  --warm: var(--light-warm);
+  --header-bg: var(--light-header);
+  --card-bg: var(--light-card);
+  --sound-card-bg: var(--light-sound-card);
+  --shadow: 0 18px 50px rgba(31, 41, 51, 0.11);
 }
 
 * {
@@ -24,8 +63,11 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: linear-gradient(180deg, rgb(247 147 22 / 15%), transparent 590px), var(--bg);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--warm) 18%, transparent), transparent 590px),
+    var(--bg);
   line-height: 1.6;
+  transition: background 180ms ease, color 180ms ease;
 }
 
 a {
@@ -37,8 +79,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid rgba(216, 210, 198, 0.85);
-  background: rgba(247, 245, 239, 0.92);
+  border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
 }
 
@@ -46,11 +87,62 @@ a {
   width: 100%;
   min-height: 68px;
   margin: 0 auto;
-  display: inline-block;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   
+}
+
+.nav-start {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: max-content;
+}
+
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 4px 10px 4px 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 750;
+}
+
+.switch-track {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.switch-thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  transition: transform 180ms ease;
+}
+
+[data-theme="light"] .switch-thumb {
+  transform: translateX(18px);
+}
+
+.theme-label {
+  min-width: 38px;
+  font-size: 0.88rem;
+  color: var(--muted);
 }
 
 .brand {
@@ -61,7 +153,7 @@ a {
 
 
 .menu {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -97,7 +189,7 @@ a {
 .menu a:hover,
 .menu a:focus-visible {
   color: var(--accent-dark);
-  background: rgba(45, 125, 122, 0.1);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
   outline: none;
 }
 
@@ -121,9 +213,9 @@ main {
   min-height: 360px;
   border-radius: var(--radius);
   overflow: hidden;
-  background: #e4dfd3;
+  background: var(--surface);
   box-shadow: var(--shadow);
-  border: 1px solid rgba(31, 41, 51, 0.08);
+  border: 1px solid var(--line);
 }
 
 .portrait img {
@@ -177,7 +269,7 @@ h1 {
   border-radius: var(--radius);
   border: 1px solid var(--accent);
   background: var(--accent);
-  color: #ffffff;
+  color: var(--bg);
   font-weight: 750;
 }
 
@@ -223,10 +315,10 @@ h1 {
 .card {
   min-height: 190px;
   padding: 24px;
-  border: 1px solid rgba(216, 210, 198, 0.95);
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 12px 30px rgba(31, 41, 51, 0.06);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
 }
 
 .card h3 {
@@ -262,7 +354,7 @@ h1 {
 }
 
 .date {
-  color: var(--warm);
+  color: var(--accent-dark);
   font-weight: 800;
 }
 
@@ -278,8 +370,8 @@ h1 {
 
 .sound-summary article {
   padding: 24px;
-  border-left: 4px solid var(--warm);
-  background: rgba(255, 255, 255, 0.58);
+  border-left: 4px solid var(--accent-dark);
+  background: var(--sound-card-bg);
 }
 
 .sound-summary p {
@@ -294,17 +386,18 @@ h1 {
   gap: 24px;
   padding: 28px;
   border-radius: var(--radius);
-  background: var(--ink);
-  color: #ffffff;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
 }
 
 .contact-panel .eyebrow {
-  color: #9ad8d3;
+  color: var(--accent-dark);
 }
 
 .contact-panel p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--muted);
 }
 
 .contact-links {
@@ -320,7 +413,7 @@ h1 {
   align-items: center;
   padding: 0 14px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid var(--line);
   font-weight: 750;
 }
 
@@ -347,8 +440,8 @@ h1 {
   height: 54px;
   border: 0;
   border-radius: var(--radius) 0 0 var(--radius);
-  background: var(--night);
-  color: #ffffff;
+  background: var(--surface);
+  color: var(--ink);
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
@@ -365,7 +458,7 @@ h1 {
   padding: 24px;
   border-radius: var(--radius) 0 0 var(--radius);
   background:
-    linear-gradient(160deg, var(--accent),var(--night));
+    linear-gradient(160deg, var(--accent), var(--night));
   box-shadow: -18px 18px 60px rgba(31, 41, 51, 0.26);
 }
 
@@ -374,9 +467,6 @@ h1 {
   font-size: 1.65rem;
 }
 
-.drawer-header .eyebrow {
-  color: #9ad8d3;
-}
 
 .track-display {
   padding: 18px;
