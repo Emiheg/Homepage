@@ -263,7 +263,7 @@ h1 {
   padding: 0 18px;
   border-radius: var(--radius);
   border: 1px solid var(--accent);
-  background: var(--accent);
+  background: var(--accent-dark);
   color: var(--bg);
   font-weight: 750;
 }
@@ -430,17 +430,18 @@ p,
 .drawer-toggle {
   position: absolute;
   top: 18px;
-  left: -45px;
+  left: -46px;
   width: 46px;
   height: 54px;
   border: 0;
   border-radius: var(--radius) 0 0 var(--radius);
-  background: var(--surface);
-  color: var(--ink);
+  background: var(--sound-card-bg);
+  color: var(--accent-dark);
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
   box-shadow: 0 12px 30px rgba(31, 41, 51, 0.2);
+  backdrop-filter: blur(0px);
 }
 
 .music-drawer.is-open .drawer-toggle span {
