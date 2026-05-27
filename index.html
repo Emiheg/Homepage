@@ -46,7 +46,9 @@
         </p>
         <div class="actions" aria-label="Primary links">
           <a class="button" href="#work">See my work</a>
-          <a class="button secondary" href="#sound">Hear my sound</a>
+
+          <a class="button secondary music-tab" href="#sound">
+            Hear my sound</a>
         </div>
       </div>
     </section>
@@ -110,6 +112,22 @@
               The simulation provides visually engaging videos with a broad variety of color combinations and gradients. 
               Can be used by designers, artists and developers to create unique sky backgrounds for games, interfaces, palettes or digital art projects.
             </p>
+            <div class="video_list"> 
+              <video autoplay loop muted playsinline> 
+                <source src="assets/video/sunset_standard.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <video autoplay loop muted playsinline> 
+                <source src="assets/video/sunset_pink.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <video autoplay loop muted playsinline> 
+                <source src="assets/video/sunset_sand.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>            
+              <img src="assets/sunset.gif" alt="A screenshot of the Rayleigh Scattering simulation">
+          </div>
+
             <p>
               I was interested in creating this simulation to get a deeper understanding of the phenomena,
               and as I kept exploring it reminded me a lot of how sound works. 
@@ -118,18 +136,26 @@
               (You can set the atmosphere so thick in the simulation that not even the red light gets through, leaving only a red sun surrounded by darkness,
                which you probably can find on planets with a dense atmosphere)
             </p>
+        </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="date">Martial Parts </div>
+        
+          <div>
+            <img src="assets/martial_parts.png" width="100%" alt="A screenshot of the Rayleigh Scattering simulation">
           </div>
         </article>
+        <!--
         <article class="timeline-item">
           <div class="date">Education</div>
           <div>
             <h3>Bachelor in IT</h3>
             <p>
-              Add the school name, focus areas, important assignments, and anything from
-              your studies that supports the kind of jobs you are applying for.
             </p>
           </div>
         </article>
+        
         <article class="timeline-item">
           <div class="date">Creative tech</div>
           <div>
@@ -139,34 +165,7 @@
               and other work that shows how your creative side connects with technology.
             </p>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section sound-section" id="sound">
-      <div class="section-header">
-        <p class="eyebrow">Sound showcase</p>
-        <h2>Music and sound design</h2>
-        <p class="section-lead">
-          A compact place for selected tracks, sketches, and sound work. The expandable
-          player on the right can stay open while visitors read the rest of the page.
-        </p>
-      </div>
-      <div class="sound-summary">
-        <article>
-          <h3>What this section can become</h3>
-          <p>
-            Add a few representative tracks instead of everything. For each one, explain
-            what you made, what tools you used, and what the listener should notice.
-          </p>
-        </article>
-        <article>
-          <h3>Suggested track types</h3>
-          <p>
-            Finished music, short sound design clips, game or interface audio, ambient
-            sketches, and small experiments all fit well here.
-          </p>
-        </article>
+        </article>-->
       </div>
     </section>
 
@@ -175,7 +174,7 @@
         <p class="eyebrow">Capabilities</p>
         <h2>Skills</h2>
         <p class="section-lead">
-          Keep this focused on the tools and strengths that match the roles you want.
+          
         </p>
       </div>
       <div class="grid">
@@ -260,7 +259,7 @@
   </main>
 
   <aside class="music-drawer is-closed" aria-label="Music player">
-    <button class="drawer-toggle" type="button" aria-label="Open music player" aria-expanded="false">
+    <button class="drawer-toggle music-tab" type="button" aria-label="Open music player" aria-expanded="false">
       <span aria-hidden="true">&lt; </span>
     </button>
     <div class="drawer-panel">
@@ -270,11 +269,9 @@
       </div>
 
       <div class="track-display">
-        <p class="track-kicker">Selected track</p>
-        <h3 id="current-track-title">Ambient Interface Sketch</h3>
+        <h3 id="current-track-title"></h3>
         <p id="current-track-description">
-          A placeholder for a short sound or music piece. Replace the audio path with
-          your own file when you add music.
+          Short description of the selected track is displayed here. They are all instrumentals and can be played while reading through the website.
         </p>
       </div>
 
@@ -289,11 +286,11 @@
             class="track-button is-active"
             type="button"
             data-title="Limit"
-            data-description="A calm, atmospheric sketch for a digital interface or menu scene."
+            data-description="Experimenting with melodies and rythms."
             data-src="assets\music\Limit.wav"
           >
             <span>Limit</span>
-            <small>Music sketch</small>
+            <small>Experimental</small>
           </button>
         </li>
         <li>
@@ -301,11 +298,11 @@
             class="track-button"
             type="button"
             data-title="Take a break"
-            data-description="A short electronic loop that could work for motion, UI feedback, or a tech demo."
+            data-description="Low-fi chill track with a simple beat, some atmospheric sounds and a bassline. Made to relax to or to have in the background."
             data-src="assets\music\Take a break.wav"
           >
             <span>Take a break</span>
-            <small>Electronic loop</small>
+            <small>Chill</small>
           </button>
         </li>
         <li>
@@ -313,11 +310,11 @@
             class="track-button"
             type="button"
             data-title="The waves between and how they steer us"
-            data-description="A sound design placeholder for field recordings, textures, or experimental audio."
+            data-description="Ambient sound design using convolution reverb with samples and field recordings in combination with instruments to create unique sounds"
             data-src="assets\music\The waves between and how they steer us.wav"
           >
             <span>The waves between and how they steer us</span>
-            <small>Ambient Sound design</small>
+            <small>Ambient</small>
           </button>
         </li>
          <li>
@@ -325,11 +322,11 @@
             class="track-button"
             type="button"
             data-title="Severed taco"
-            data-description="A sound design placeholder for field recordings, textures, or experimental audio."
+            data-description="A mix of atmospheric sounds, noise, a beat and guitars"
             data-src="assets\music\Severed taco.wav"
           >
             <span>Severed taco</span>
-            <small>Sound design</small>
+            <small>Mix</small>
           </button>
         </li>
       </ul>

@@ -463,6 +463,24 @@ p,
   font-size: 1.65rem;
 }
 
+.video_list {
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+  place-items: center;
+}
+
+.video_list > * {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: none;
+  display: inline;
+
+}
+
 
 .track-display {
   padding: 18px;
@@ -470,6 +488,11 @@ p,
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.14);
+  height: 180px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+
 }
 
 .track-display h3 {

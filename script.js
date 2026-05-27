@@ -1,5 +1,6 @@
 const drawer = document.querySelector(".music-drawer");
 const drawerToggle = document.querySelector(".drawer-toggle");
+const musicTab = document.getElementsByClassName("music-tab");
 const audioPlayer = document.querySelector("#audio-player");
 const currentTrackTitle = document.querySelector("#current-track-title");
 const currentTrackDescription = document.querySelector("#current-track-description");
@@ -24,12 +25,14 @@ themeSwitch.addEventListener("click", () => {
   applyTheme(nextTheme);
 });
 
-drawerToggle.addEventListener("click", () => {
-  const isOpen = drawer.classList.toggle("is-open");
+for (const tab of musicTab) {
+  tab.addEventListener("click", () => {
+    const isOpen = drawer.classList.toggle("is-open");
 
-  drawerToggle.setAttribute("aria-expanded", String(isOpen));
-  drawerToggle.setAttribute("aria-label", isOpen ? "Close music player" : "Open music player");
-});
+    drawerToggle.setAttribute("aria-expanded", String(isOpen));
+    drawerToggle.setAttribute("aria-label", isOpen ? "Close music player" : "Open music player");
+  });
+}
 
 trackButtons.forEach((button) => {
   button.addEventListener("click", () => {
